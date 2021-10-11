@@ -26,13 +26,15 @@ public class MainActivity extends AppCompatActivity {
     ViewPager2 viewPager;
     Button next;
     Button previous;
-
+    DotsIndicator dotsindicator;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         viewPager = findViewById(R.id.viewpager2);
+        dotsIndicator = findViewById(R.id.dots_indicator);
+        
 
         fragList.add(new Frag1());
         fragList.add(new Frag2());
@@ -65,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager.setUserInputEnabled(false);
         viewPager.setPageTransformer(new ZoomOutTransformation());
+        viewPager.setAdapter(viewPagerAdapter);
+        dotsindicator.setViewPager2(viewPager);
+    
+ 
     }
 
 }
