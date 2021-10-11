@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         viewPager.setUserInputEnabled(false);
+        viewPager.setPageTransformer(new ZoomOutTransformation());
     }
 
 }
