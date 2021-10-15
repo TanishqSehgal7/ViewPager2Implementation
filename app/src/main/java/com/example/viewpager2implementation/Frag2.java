@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.example.viewpager2implementation.databinding.FragmentFrag2Binding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +25,7 @@ public class Frag2 extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private FragmentFrag2Binding binding;
     public Frag2() {
         // Required empty public constructor
     }
@@ -59,6 +61,7 @@ public class Frag2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frag2, container, false);
+        binding = FragmentFrag2Binding.inflate(inflater,container,false);
+        return binding.getRoot();
     }
 }
