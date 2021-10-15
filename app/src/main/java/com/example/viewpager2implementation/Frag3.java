@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.viewpager2implementation.databinding.FragmentFrag3Binding;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link Frag3#newInstance} factory method to
@@ -55,10 +57,13 @@ public class Frag3 extends Fragment {
         }
     }
 
+    private FragmentFrag3Binding binding;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frag3, container, false);
+        binding = FragmentFrag3Binding.inflate(inflater,container,false);
+        return binding.getRoot();
     }
 }
