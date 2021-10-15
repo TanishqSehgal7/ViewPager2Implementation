@@ -16,6 +16,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.viewpager2implementation.databinding.ActivityMainBinding;
+import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,17 +26,13 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     List<Fragment> fragList = new ArrayList<>();
-    ViewPager2 viewPager;
-    Button next;
-    Button previous;
-    DotsIndicator dotsindicator;
+    ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        viewPager = findViewById(R.id.viewpager2);
-        dotsIndicator = findViewById(R.id.dots_indicator);
         
 
         fragList.add(new Frag1());
@@ -43,32 +42,30 @@ public class MainActivity extends AppCompatActivity {
 
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this, fragList);
-        viewPager.setPageTransformer(new DepthPageTransformer());
-        viewPager.setAdapter(viewPagerAdapter);
+        binding.viewpager2.setPageTransformer(new DepthPageTransformer());
+        binding.viewpager2.setAdapter(viewPagerAdapter);
 
-        next=findViewById(R.id.button2);
-        previous = findViewById(R.id.button);
 
-        next.setOnClickListener(new View.OnClickListener() {
+        binding.button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(viewPager.getCurrentItem()!=fragList.size()) {
-                    viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                if(binding.viewpager2.getCurrentItem()!=fragList.size()) {
+                    binding.viewpager2.setCurrentItem(binding.viewpager2.getCurrentItem() + 1);
                 }
             }
         });
 
-        previous.setOnClickListener(new View.OnClickListener() {
+        binding.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
+                binding.viewpager2.setCurrentItem(binding.viewpager2.getCurrentItem() - 1);
             }
         });
 
-        viewPager.setUserInputEnabled(false);
-        viewPager.setPageTransformer(new ZoomOutTransformation());
-        viewPager.setAdapter(viewPagerAdapter);
-        dotsindicator.setViewPager2(viewPager);
+        binding.viewpager2.setUserInputEnabled(false);
+        binding.viewpager2.setPageTransformer(new ZoomOutTransformation());
+        binding.viewpager2.setAdapter(viewPagerAdapter);
+        binding.dotsIndicator.setViewPager2(binding.viewpager2);
     
  
     }
