@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.viewpager2implementation.databinding.FragmentFrag1Binding;
+
 public class Frag1 extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
@@ -20,7 +22,7 @@ public class Frag1 extends Fragment {
     public Frag1() {
         // Required empty public constructor
     }
-
+    private FragmentFrag1Binding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,14 @@ public class Frag1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frag1, container, false);
+        binding = FragmentFrag1Binding.inflate(inflater, container, false);
+
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }
