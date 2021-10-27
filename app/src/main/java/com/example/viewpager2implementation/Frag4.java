@@ -10,11 +10,6 @@ import android.view.ViewGroup;
 
 import com.example.viewpager2implementation.databinding.FragmentFrag4Binding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Frag4#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Frag4 extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -29,16 +24,12 @@ public class Frag4 extends Fragment {
     public Frag4() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Frag4.
-     */
-    // TODO: Rename and change types and number of parameters
+    //extra code not relevant
+    private var board = arrayListOf("", "", "", "", "", "", "", "", "")
+    private lateinit var mediaPlayer: MediaPlayer
+    private lateinit var mp: MediaPlayer
+    private lateinit var mp1: MediaPlayer
+        
     public static Frag4 newInstance(String param1, String param2) {
         Frag4 fragment = new Frag4();
         Bundle args = new Bundle();
